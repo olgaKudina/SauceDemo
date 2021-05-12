@@ -1,5 +1,4 @@
 package tests;
-
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -10,13 +9,11 @@ import pages.LoginPage;
 import pages.ProductsPage;
 
 import java.util.concurrent.TimeUnit;
-
 public class BaseTest {
     WebDriver driver;
     LoginPage loginPage;
     ProductsPage productsPage;
     CartPage cartPage;
-
     @BeforeMethod
     public void initTest(){
         WebDriverManager.chromedriver().setup();
