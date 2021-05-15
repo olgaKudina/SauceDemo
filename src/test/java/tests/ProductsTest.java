@@ -15,18 +15,16 @@ public class ProductsTest extends BaseTest{
         loginPage.openPage();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.addProductToCart("Sauce Labs Backpack");
-        driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-backpack\"]")).click();
-        boolean IsRemoveButtonDisplayed = driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-backpack\"]")).isDisplayed();
-        Assert.assertTrue(IsRemoveButtonDisplayed);
+        //productsPage.addToCartSauseLabsBackpack();
+        Assert.assertTrue(productsPage.isRemoveButtonDisplayed());
     }
     @Test
     public void RemoveButtonWorksFromProductsPage(){
         loginPage.openPage();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.addProductToCart("Sauce Labs Bike Light");
-        driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-bike-light\"]")).click();
-        boolean IsAddToCartButtonDisplayed = driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-bike-light\"]")).isDisplayed();
-        Assert.assertTrue(IsAddToCartButtonDisplayed);
+        productsPage.removeSauceLabsBikeLight();
+        Assert.assertTrue(productsPage.isAddToCartButtonDisplayed());
     }
 }
 

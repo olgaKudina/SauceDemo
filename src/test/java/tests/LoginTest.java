@@ -3,13 +3,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import static pages.LoginPage.ERROR;
+import pages.LoginPage;
+import static pages.LoginPage.ERROR_MESSAGE;
 public class LoginTest extends BaseTest{
     @Test
-    public void ErrorLoginTest (){
+    public void errorLoginTest (){
         loginPage.openPage();
         loginPage.login("standard_user", "null");
-        boolean IsErrorTextDisplayed = driver.findElement(By.xpath("//*[@data-test='error']")).isDisplayed();
-        Assert.assertTrue(IsErrorTextDisplayed);
+        Assert.assertTrue(loginPage.loginErrorDisplayed());
     }
 }

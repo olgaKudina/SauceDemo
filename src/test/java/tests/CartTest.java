@@ -14,9 +14,10 @@ public class CartTest extends BaseTest{
     @Test
     public void quantityInCartTest(){
         loginPage.openPage();
+        loginPage.waitForPageOpened();
         loginPage.login("standard_user", "secret_sauce");
         productsPage.addProductToCart("Sauce Labs Bolt T-Shirt");
         cartPage.openPage();
-        Assert.assertEquals(cartPage.getQuantity("Sauce Labs Bolt T-Shirt"), "1");
+        Assert.assertEquals(cartPage.getProductQuantity("Sauce Labs Bolt T-Shirt"), "1");
     }
 }
