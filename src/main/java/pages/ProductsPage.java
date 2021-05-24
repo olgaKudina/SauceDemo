@@ -6,8 +6,9 @@ public class ProductsPage extends HeaderPage {
         super(driver);
     }
     public static final String ADD_TO_CART_BOTTON = "//*[text()='%s']/ancestor::*[@class='inventory_item']//button";
-    public void addProductToCart(String productName) {
+    public ProductsPage addProductToCart(String productName) {
         driver.findElement(By.xpath(String.format(ADD_TO_CART_BOTTON, productName))).click();
+        return this;
     }
     public void addToCartSauseLabsBackpack(){
         driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-backpack\"]")).click();
