@@ -12,7 +12,7 @@ public class CartTest extends BaseTest {
         cartPage.openPage();
         Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bolt T-Shirt"), "$15.99");
     }
-    @Test
+    @Test(retryAnalyzer = Retry.class)
     public void quantityInCartTest() {
         loginPage.openPage();
         loginPage.waitForPageOpened();
