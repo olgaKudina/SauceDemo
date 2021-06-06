@@ -5,28 +5,19 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 public class CartTest extends BaseTest {
     @Test
-    public void addProductToCartTest2(){
-        loginPage.openPage();
-        loginPage.login("standard_user", "secret_sauce");
-        productsPage.addProductToCart("Sauce Labs Bolt T-Shirt");
+    public void getProductPriceInCartTest2(){    //failed test
+        productSteps.loginAndAddProduct("standard_user", "secret_sauce", "Sauce Labs Backpack");
         cartPage.openPage();
-        Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bolt T-Shirt"), "$15.99");
+        Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Backpack"), "$29.99");
     }
     @Test(retryAnalyzer = Retry.class)
     public void quantityInCartTest() {
-        loginPage.openPage();
-        loginPage.waitForPageOpened();
-        loginPage.login("standard_user", "secret_sauce");
-        productsPage.addProductToCart("Sauce Labs Bolt T-Shirt");
-        cartPage.openPage();
+        cartSteps.loginAddProductOpenCartPage("standard_user", "secret_sauce", "Sauce Labs Bolt T-Shirt");
         Assert.assertEquals(cartPage.getProductQuantity("Sauce Labs Bolt T-Shirt"), "1");
     }
     @Test
-    public void addProductToCartTest() {
-        loginPage.openPage()
-                .login("standard_user", "secret_sauce")
-                .addProductToCart("Sauce Labs Bolt T-Shirt");
-        cartPage.openPage();
+    public void getProductPriceInCartTest() {
+        cartSteps.loginAddProductOpenCartPage("standard_user", "secret_sauce", "Sauce Labs Bolt T-Shirt");
         Assert.assertEquals(cartPage.getProductPrice("Sauce Labs Bolt T-Shirt"), "$15.99");
     }
 }
