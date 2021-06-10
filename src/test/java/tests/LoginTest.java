@@ -4,8 +4,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.LoginPage;
-import static pages.LoginPage.ERROR_MESSAGE;
 public class LoginTest extends BaseTest{
     @FindBy(xpath = "//button[contains(.,'Add')]")
     WebElement addButton;

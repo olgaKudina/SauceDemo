@@ -1,9 +1,12 @@
 package pages;
+import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-public class LoginPage extends  BasePage {
+
+public class LoginPage extends  BasePage{
+
     public LoginPage(WebDriver driver){
         super(driver);
     }
@@ -12,6 +15,10 @@ public class LoginPage extends  BasePage {
     public static final By LOGIN_BUTTON = By.xpath("//*[@id='login-button']");
     public static final By ERROR_MESSAGE = By.xpath("//*[@data-test='error']");
     public static final By BOT_LOGO = By.xpath("//*[@id='bot_column-button']");
+    String SAUCEDEMO_URL = "https://www.saucedemo.com/";
+
+
+    @Step("Fill in {username} and {password} in Login field")
     public ProductsPage login(String username, String password){
         WebDriverWait wait = new WebDriverWait(driver, 10);
         driver.findElement(USERNAME_INPUT).sendKeys(username);
@@ -19,8 +26,9 @@ public class LoginPage extends  BasePage {
         driver.findElement(LOGIN_BUTTON).click();
         return new ProductsPage(driver);
     }
+    @Step("Opening Login page")
     public LoginPage openPage(){
-        driver.get("https://www.saucedemo.com/");
+        driver.get(SAUCEDEMO_URL);
         return this;
     }
     public boolean loginErrorDisplayed(){
