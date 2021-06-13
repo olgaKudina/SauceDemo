@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utils.PropertyReader;
+
 public class LoginTest extends BaseTest{
     @FindBy(xpath = "//button[contains(.,'Add')]")
     WebElement addButton;
@@ -19,17 +21,20 @@ public class LoginTest extends BaseTest{
     @Test
     public void loginFactoryTest(){
         loginPageFactory.openPage();
-        loginPageFactory.loginFactory("standard_user", "secret_sauce");
+        //loginPageFactory.loginFactory("standard_user", "secret_sauce");
+        //loginPageFactory.loginFactory(System.getenv("username"), System.getenv("password"));
+        loginPageFactory.loginFactory(System.getenv().getOrDefault("username", PropertyReader.getProperty("username")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")));
+
     }
-    @Test
-    public void demoWithoutPageFactory(){
-        WebElement addButton = driver.findElement(By.xpath("//button[contains(.,'Add')]"));
-        addButton.click();
-        WebElement deleteButton = driver.findElement(By.xpath("//button[contains(.,'Delete')]"));
-        deleteButton.click();
-        addButton.click();
-        deleteButton.click();
-    }
+//    @Test
+//    public void demoWithoutPageFactory(){
+//        WebElement addButton = driver.findElement(By.xpath("//button[contains(text,('Add'))]"));
+//        addButton.click();
+//        WebElement deleteButton = driver.findElement(By.xpath("//button[contains(text,'Delete'))]"));
+//        deleteButton.click();
+//        addButton.click();
+//        deleteButton.click();
+//    }
     @Test
     public void demoWithPageFactory() {
         driver.get("http://the-internet.herokuapp.com/add_remove_elements/");
