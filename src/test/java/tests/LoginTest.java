@@ -26,15 +26,7 @@ public class LoginTest extends BaseTest{
         loginPageFactory.loginFactory(System.getenv().getOrDefault("username", PropertyReader.getProperty("username")), System.getenv().getOrDefault("password", PropertyReader.getProperty("password")));
 
     }
-//    @Test
-//    public void demoWithoutPageFactory(){
-//        WebElement addButton = driver.findElement(By.xpath("//button[contains(text,('Add'))]"));
-//        addButton.click();
-//        WebElement deleteButton = driver.findElement(By.xpath("//button[contains(text,'Delete'))]"));
-//        deleteButton.click();
-//        addButton.click();
-//        deleteButton.click();
-//    }
+
     @Test
     public void demoWithPageFactory() {
         driver.get("http://the-internet.herokuapp.com/add_remove_elements/");

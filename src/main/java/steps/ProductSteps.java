@@ -12,6 +12,7 @@ public class ProductSteps {
         loginPage = new LoginPage(driver);
         productsPage = new ProductsPage(driver);
     }
+
     @Step("Login and add product to cart")
     public ProductSteps loginAndAddProduct(String username, String password, String productName) {
         loginPage
