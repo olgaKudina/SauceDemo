@@ -9,11 +9,13 @@ public class ProductsTest extends BaseTest{
         cartPage.openPage();
         Assert.assertEquals(cartPage.getProductName(), "Sauce Labs Backpack");
     }
+
     @Test(retryAnalyzer = Retry.class)
     public void RemoveButtonIsPresentOnProduct(){
         productSteps.loginAndAddProduct("standard_user", "secret_sauce", "Sauce Labs Backpack");
         Assert.assertTrue(productsPage.isRemoveButtonDisplayed());
     }
+
     @Test
     public void RemoveButtonWorksFromProductsPage(){
         productSteps.loginAndAddProduct("standard_user", "secret_sauce", "Sauce Labs Bike Light");

@@ -1,5 +1,4 @@
 package steps;
-
 import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import pages.CartPage;
@@ -13,6 +12,7 @@ public class CartSteps {
         cartPage = new CartPage(driver);
         loginPage = new LoginPage(driver);
     }
+
     @Step("Login, add product and open CartPage")
     public CartSteps loginAddProductOpenCartPage (String username, String password, String productName) {
         loginPage

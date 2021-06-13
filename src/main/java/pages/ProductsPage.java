@@ -13,20 +13,24 @@ public class ProductsPage extends HeaderPage {
         driver.findElement(By.xpath(String.format(ADD_TO_CART_BOTTON, productName))).click();
         return this;
     }
-    @Step
+
+    @Step ("Add to Cart Sauce backpack")
     public void addToCartSauseLabsBackpack(){
         driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-backpack\"]")).click();
     }
+
     @Step("Is Remove Button displayed")
     public boolean isRemoveButtonDisplayed(){
         if (driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-backpack\"]")).isDisplayed());
         return true;
     }
-    @Step
+
+    @Step ("Remove Sauce Labs Bike Light")
     public void removeSauceLabsBikeLight(){
         driver.findElement(By.xpath("//*[@id=\"remove-sauce-labs-bike-light\"]")).click();
     }
-    @Step
+
+    @Step("Check if Add To Cart Button is Displayed")
     public boolean isAddToCartButtonDisplayed () {
         if (driver.findElement(By.xpath("//*[@id=\"add-to-cart-sauce-labs-bike-light\"]")).isDisplayed());
         return true;

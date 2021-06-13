@@ -13,7 +13,6 @@ import pages.LoginPageFactory;
 import pages.ProductsPage;
 import steps.CartSteps;
 import steps.ProductSteps;
-
 import java.util.concurrent.TimeUnit;
 
     @Listeners(TestListener.class)
